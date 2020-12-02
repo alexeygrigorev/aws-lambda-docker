@@ -9,6 +9,9 @@ wget https://github.com/alexeygrigorev/serverless-deep-learning/raw/master/tflit
 
 Download the model:
 
+```
+wget https://github.com/alexeygrigorev/mlbookcamp-code/releases/download/chapter7-model/xception_v4_large_08_0.894.h5
+```
 
 Convert the model to tf-lite:
 
@@ -22,7 +25,7 @@ Build the image:
 
 ```
 docker build -t tf-lite-lambda .
-``
+```
 
 
 Run it:
