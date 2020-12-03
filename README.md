@@ -77,32 +77,10 @@ Create a repo:
 aws ecr create-repository --repository-name lambda-images 
 ```
 
-Response:
-
-```
-{
-    "repository": {
-        "repositoryArn": "arn:aws:ecr:eu-west-1:639996426799:repository/lambda-images",
-        "registryId": "639996426799",
-        "repositoryName": "lambda-images",
-        "repositoryUri": "639996426799.dkr.ecr.eu-west-1.amazonaws.com/lambda-images",
-        "createdAt": 1606944688.0,
-        "imageTagMutability": "MUTABLE",
-        "imageScanningConfiguration": {
-            "scanOnPush": false
-        },
-        "encryptionConfiguration": {
-            "encryptionType": "AES256"
-        }
-    }
-}
-```
-
 Tag: 
 
 ```
 ACCOUNT=XXXXXXXXXXXX
-ACCOUNT=639996426799
 
 docker tag tf-lite-lambda ${ACCOUNT}.dkr.ecr.eu-west-1.amazonaws.com/lambda-images:tf-lite-lambda
 ```
