@@ -32,7 +32,7 @@ Run it:
 
 ```
 docker run --rm \
-    -p 8080:8080 \
+    -p 9000:8080 \
     -v $(pwd)/clothing-model-v4.tflite:/tmp/clothing-model-v4.tflite \
     tf-lite-lambda
 ```
