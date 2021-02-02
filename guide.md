@@ -2,34 +2,34 @@
 
 We’ll use AWS Lambda and Docker to deploy a Keras model
 
-  - > You can find all the code here:
-    > [https://github.com/alexeygrigorev/aws-lambda-docker](https://github.com/alexeygrigorev/aws-lambda-docker)
-  - > This tutorial is based on
-    > [https://github.com/alexeygrigorev/serverless-deep-learning](https://github.com/alexeygrigorev/serverless-deep-learning)
-    > and
-    > [https://github.com/alexeygrigorev/aws-lambda-model-deployment-workshop](https://github.com/alexeygrigorev/aws-lambda-model-deployment-workshop)
-  - > We will deploy a model for predicting the types of clothes
-    > (trained here:
-    > [https://github.com/alexeygrigorev/mlbookcamp-code/blob/master/chapter-07-neural-nets/07-neural-nets-train.ipynb](https://github.com/alexeygrigorev/mlbookcamp-code/blob/master/chapter-07-neural-nets/07-neural-nets-train.ipynb))
+  -  You can find all the code here:
+     [https://github.com/alexeygrigorev/aws-lambda-docker](https://github.com/alexeygrigorev/aws-lambda-docker)
+  -  This tutorial is based on
+     [https://github.com/alexeygrigorev/serverless-deep-learning](https://github.com/alexeygrigorev/serverless-deep-learning)
+     and
+     [https://github.com/alexeygrigorev/aws-lambda-model-deployment-workshop](https://github.com/alexeygrigorev/aws-lambda-model-deployment-workshop)
+  -  We will deploy a model for predicting the types of clothes
+     (trained here:
+     [https://github.com/alexeygrigorev/mlbookcamp-code/blob/master/chapter-07-neural-nets/07-neural-nets-train.ipynb](https://github.com/alexeygrigorev/mlbookcamp-code/blob/master/chapter-07-neural-nets/07-neural-nets-train.ipynb))
 
 Plan:
 
-  - > Convert the model from Keras to TF Lite
-  - > Prepare the code for lambda
-  - > Package everything into a Docker image
-  - > Push the image to ECR
-  - > Create the lambda function
-  - > Create an API Gateway
+  - Convert the model from Keras to TF Lite
+  - Prepare the code for lambda
+  - Package everything into a Docker image
+  - Push the image to ECR
+  - Create the lambda function
+  - Create an API Gateway
 
 **Prerequisites**
 
-  - > You need to have Python 3.7 (or Python 3.8). The easiest way to
-    > install it — use Anaconda
-    > ([https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual))
-  - > Install TensorFlow (pip install tensorflow should be sufficient)
-  - > Make sure you have Docker
-  - > You need to have an account in AWS and AWS CLI installed and
-    > configured
+  -  You need to have Python 3.7 (or Python 3.8). The easiest way to
+     install it — use Anaconda
+     ([https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual))
+  -  Install TensorFlow (pip install tensorflow should be sufficient)
+  -  Make sure you have Docker
+  -  You need to have an account in AWS and AWS CLI installed and
+     configured
 
 ## Preparing the model
 
@@ -79,12 +79,12 @@ with tf.io.gfile.GFile('clothing-model-v4.tflite', 'wb') as f:
 
 To apply the model, we need to do the following steps:
 
-  - > Get the image (as a PIL Image)
-  - > Prepare the image (resize, etc)
-  - > Convert the image to a tensor, apply the pre-processing function
-    > (normalization, etc)
-  - > Put the tensor in the model, get the predictions and post-process
-    > the predictions
+  -  Get the image (as a PIL Image)
+  -  Prepare the image (resize, etc)
+  -  Convert the image to a tensor, apply the pre-processing function
+     (normalization, etc)
+  -  Put the tensor in the model, get the predictions and post-process
+     the predictions
 
 In Keras, the logic for doing most of these operations is in the
 keras-preprocessing module. We can’t use this module inside AWS Lambda
@@ -419,5 +419,3 @@ The response:
 ```
 
 Now it’s working!
-
-
