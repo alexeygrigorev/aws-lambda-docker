@@ -1,12 +1,4 @@
 
-Get TF-Lite binaries:
-
-
-```
-wget https://github.com/alexeygrigorev/serverless-deep-learning/raw/master/tflite/tflite_runtime-2.2.0-cp37-cp37m-linux_x86_64.whl
-```
-
-
 Download the model:
 
 ```
@@ -16,33 +8,32 @@ wget https://github.com/alexeygrigorev/mlbookcamp-code/releases/download/chapter
 Convert the model to tf-lite:
 
 ```
-python keras_to_tf.py xception_v4_large_08_0.894.h5 clothing-model-v4.tflite
+python keras_to_tf.py
 ```
 
 Build the image:
 
-(Important: don't change the workdir)
+(Important: don't change the workdir in Dockerfile)
 
 ```
 docker build -t tf-lite-lambda .
 ```
 
-
 Run it:
 
 ```
 docker run --rm \
-    -p 9000:8080 \
-    -v $(pwd)/clothing-model-v4.tflite:/tmp/clothing-model-v4.tflite \
+    -p 8080:8080 \
     tf-lite-lambda
 ```
 
 Test:
 
 ```
-URL="http://localhost:9000/2015-03-31/functions/function/invocations"
+URL="http://localhost:8080/2015-03-31/functions/function/invocations"
+
 REQUEST='{
-    "url": "https://raw.githubusercontent.com/alexeygrigorev/clothing-dataset-small/master/test/pants/4aabd82c-82e1-4181-a84d-d0c6e550d26d.jpg"
+    "url": "http://bit.ly/mlbookcamp-pants"
 }'
 
 curl -X POST \
