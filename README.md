@@ -1,4 +1,6 @@
 
+Full guide: [guide.md](guide.md)
+
 Download the model:
 
 ```
