@@ -39,8 +39,7 @@ with AWS Lambda. We need to convert the model to TF-lite format
 Get the model:
 
 ```bash
-wget
-https://github.com/alexeygrigorev/mlbookcamp-code/releases/download/chapter7-model/xception_v4_large_08_0.894.h5
+wget https://github.com/alexeygrigorev/mlbookcamp-code/releases/download/chapter7-model/xception_v4_large_08_0.894.h5
 ```
 
 Create a python script “keras_to_tf.py”. Start with the imports:
@@ -365,7 +364,7 @@ To test it, click on “test” and put this request to request body:
 
 ```json
 {
-"url": "http://bit.ly/mlbookcamp-pants"
+  "url": "http://bit.ly/mlbookcamp-pants"
 }
 ```
 
@@ -383,7 +382,7 @@ Create a new stage “test”:
 ![](media/image6.png)
 
 And get the url in from the “Invoke URL” field. For us, it’s
-[https://l7avw579a1.execute-api.eu-west-1.amazonaws.com/test](https://l7avw579a1.execute-api.eu-west-1.amazonaws.com/test)
+"https://l7avw579a1.execute-api.eu-west-1.amazonaws.com/test"
 
 Now we can test it from the terminal:
 
