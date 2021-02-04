@@ -226,7 +226,9 @@ Next, we need to check that the lambda function works.
 Let’s run the image:
 
 ```bash
-docker build -t tf-lite-lambda .
+docker run --rm \
+    -p 8080:8080 \
+    tf-lite-lambda
 ```
 
 And test it with curl:
