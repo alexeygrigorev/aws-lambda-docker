@@ -56,13 +56,6 @@ Load the model:
 model = keras.models.load_model('xception_v4_large_08_0.894.h5')
 ```
 
-
-Load the model:
-
-```python
-model = keras.models.load_model('xception_v4_large_08_0.894.h5')
-```
-
 Convert it to TF-Lite:
 
 ```python
